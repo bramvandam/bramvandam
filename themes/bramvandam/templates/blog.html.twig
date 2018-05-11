@@ -24,7 +24,7 @@
   </div>
 </section>
 
-<section class="blog-overview">
+<section class="blog-overview" id="toppost">
 
     <div class="blog-title">
       <h4>Nieuwste Posts</h4>
@@ -34,10 +34,11 @@
       {% for child in collection %}
         {% include 'partials/blog_item.html.twig' with {'page':child, 'truncate':true} %}
       {% endfor %}
-
+  <div class="pagination-wrapper">
       {% if config.plugins.pagination.enabled and collection.params.pagination %}
         {% include 'partials/pagination.html.twig' with {'pagination':collection.params.pagination} %}
       {% endif %}
+  </div>
 
 
 </section>

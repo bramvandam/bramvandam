@@ -1,0 +1,80 @@
+.pagination-wrapper
+  display: flex
+  justify-content: center
+
+.blogPagination
+  display: flex
+
+  list-style-type: none
+  margin: 0px 0px 50px 0px
+  padding: 0
+  box-shadow: 3px 4px 35px -3px rgba(0,0,0,0.2)
+
+  &:hover .paginationCurrent span
+    border-bottom: 3px solid $light-grey
+
+  font:
+    family: "Source Sans Pro", sans-serif
+    weight: 600
+
+
+  li
+    span
+      display: inline-block
+      background-color: $light-grey
+      color: white
+      margin: 0
+      padding: 8px 14px 6px 14px
+
+
+
+
+.paginationOther span
+  color: white
+  border-bottom: 3px solid $light-grey
+  transition: all .1s ease-in-out
+
+  &:hover
+    border-bottom: 3px solid $ocean
+
+.paginationCurrent span
+  border-bottom: 3px solid $ocean
+  margin: 0
+  cursor: auto
+  transition: all .1s ease-in-out
+
+  &:hover
+    border-bottom: 3px solid $ocean !important
+
+.paginationNext, .paginationPrev
+  font-size: 11px
+  padding: 11px 16px 8px 16px !important
+  border-bottom: 3px solid $light-grey
+  transition: all .1s ease-in-out
+
+  &:hover
+    border-bottom: 3px solid $ocean
+
+
+.paginationPrev
+  border-radius: 3px 0px 0px 3px
+
+.paginationNext
+  border-radius: 0px 3px 3px 0px !important
+
+#paginationDisabled span
+  color: $muted-text
+  cursor: auto
+
+@media (max-width: 767px)
+  .blogPagination
+    li
+      margin: 0px
+      span
+        font-size: 17px
+        padding: 11px 16px 8px 16px
+
+
+  .paginationNext, .paginationPrev
+    font-size: 14px
+    padding: 11px 18px 8px 18px !important

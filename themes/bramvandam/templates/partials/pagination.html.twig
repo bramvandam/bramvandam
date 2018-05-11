@@ -3,21 +3,21 @@
 
 {% if pagination|length > 1 %}
 
-<ul class="pagination">
+<ul class="blogPagination">
     {% if pagination.hasPrev %}
         {% set url =  base_url ~ (pagination.params ~ pagination.prevUrl)|replace({'//':'/'}) %}
-        <li><a rel="prev" href="{{ url }}">&laquo;</a></li>
+        <li><a rel="prev" href="{{ url }}#toppost"><span class="paginationPrev ion-chevron-left"></span></a></li>
     {% else %}
-        <li><span>&laquo;</span></li>
+        <li id="paginationDisabled"><span class="paginationPrev ion-chevron-left"></span></li>
     {% endif %}
 
     {% for paginate in pagination %}
 
         {% if paginate.isCurrent %}
-            <li><span>{{ paginate.number }}</span></li>
+            <li class="paginationCurrent"><span>{{ paginate.number }}</span></li>
         {% elseif paginate.isInDelta %}
             {% set url = base_url ~ (pagination.params ~ paginate.url)|replace({'//':'/'}) %}
-            <li><a href="{{ url }}">{{ paginate.number }}</a></li>
+            <li class="paginationOther"><a href="{{ url }}#toppost"><span>{{ paginate.number }}</span></a></li>
         {% elseif paginate.isDeltaBorder %}
             <li class="gap"><span>&hellip;</span></li>
         {% endif %}
@@ -25,9 +25,9 @@
     {% endfor %}
     {% if pagination.hasNext %}
         {% set url = base_url ~ (pagination.params ~ pagination.nextUrl)|replace({'//':'/'}) %}
-        <li><a rel="next" href="{{ url }}">&raquo;</a></li>
+        <li><a rel="next" href="{{ url }}#toppost"><span class="paginationNext ion-chevron-right"></span></a></li>
     {% else %}
-        <li><span>&raquo;</span></li>
+        <li id="paginationDisabled"><a rel="next" href="{{ url }}"><span class="paginationNext ion-chevron-right"></span></a></li>
     {% endif %}
 </ul>
 
