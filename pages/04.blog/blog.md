@@ -2,17 +2,18 @@
 title: Blog
 blog_url: post
 introTitle: Hersenspinsels
+visible: false
 
 content:
     items: @self.children
     order:
         by: date
         dir: desc
-    limit: 3
+    limit: 5
     pagination: true
 feed:
     description: mijn hersenspinsels
-    limit: 3
+    limit: 5
     pagination: true
 ---
 
